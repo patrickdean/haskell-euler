@@ -1,10 +1,6 @@
-threeDigitNums = [999,998..100]
-
-nums = concat $ map  (\x -> (map (*x) threeDigitNums)) threeDigitNums
-
 isPalindrome :: String -> Bool
 isPalindrome s = s == reverse s
 
-answer = foldl1 (max) $ filter (isPalindrome . show) nums
+answer = maximum [a * b | a <- [999,998..100], b <- [999,998..100], isPalindrome $ show (a*b)]
 
 main = print answer
